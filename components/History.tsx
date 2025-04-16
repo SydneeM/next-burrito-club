@@ -3,6 +3,7 @@
 import { Button, Dialog, DialogPanel } from "@headlessui/react"
 import { RestaurantDocument } from "@/app/api/restaurants/route";
 import Ratings from "./Ratings";
+import Reviews from "./Reviews";
 import { useState } from "react";
 
 interface HistoryProps {
@@ -60,7 +61,7 @@ function History({ restaurants }: HistoryProps) {
                     transition
                     className="w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
                   >
-                    <div>Test</div>
+                    <Reviews restaurant={restaurant} />
                   </DialogPanel>
                 </div>
               </div>

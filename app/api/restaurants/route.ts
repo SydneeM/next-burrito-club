@@ -32,5 +32,12 @@ export async function POST(request: Request) {
   const client = await clientPromise;
   const insertResult = await client.db("next_burrito_club").collection("restaurants").insertOne(newRestaurant);
   const newId = insertResult.insertedId;
-  return Response.json({ success: `Added restaurant with id ${newId}` });
+  return Response.json({ message: `Added restaurant with id ${newId}` });
+}
+
+export async function PATCH(request: Request) {
+  const { updateId, updatedReviews } = await request.json();
+  const client = await clientPromise;
+  await client.db("next_burrito_club").collection("restaurants").updateOne({ _id: ObjectId.createFromHexString(updateId) }, { $set: { reviews: updatedReviews } });
+  return Response.json({ message: `Added review for restaurant with id ${updateId}` });
 }
