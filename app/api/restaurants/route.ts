@@ -15,6 +15,7 @@ export async function GET() {
   const client = await clientPromise;
   const findResult = client.db("next_burrito_club").collection("restaurants").find();
   const restaurants = await findResult.toArray();
+  restaurants.sort((a, b) => b.time - a.time);
   return Response.json(restaurants);
 }
 

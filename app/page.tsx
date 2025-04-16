@@ -1,4 +1,5 @@
 import RestaurantInput from "@/components/RestaurantInput";
+import History from "@/components/History";
 import { RestaurantDocument } from "./api/restaurants/route";
 
 export default async function Home() {
@@ -7,6 +8,9 @@ export default async function Home() {
   console.log(restaurants);
 
   return (
-   <RestaurantInput />
+    <div>
+      <RestaurantInput />
+      <History restaurants={restaurants} />
+    </div>
   );
 }
