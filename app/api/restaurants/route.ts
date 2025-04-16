@@ -1,11 +1,18 @@
 import clientPromise from "@/utils/connect";
 import { ObjectId } from "mongodb";
 
+export interface Review {
+  rating: number;
+  comment: string;
+  user: string;
+}
+
 export interface Restaurant {
   buyer: string;
   restaurant: string;
   time: number;
   ratings: number[];
+  reviews: Review[];
 }
 
 export interface RestaurantDocument extends Restaurant {
