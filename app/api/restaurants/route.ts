@@ -5,6 +5,7 @@ export interface Restaurant {
   buyer: string;
   restaurant: string;
   time: number;
+  ratings: number[];
 }
 
 export interface RestaurantDocument extends Restaurant {

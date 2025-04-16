@@ -11,13 +11,13 @@ function RestaurantInput() {
     if (restaurant !== "" && restaurant.trim().length !== 0 &&
       buyer !== "" && buyer.trim().length !== 0) {
       const time: number = Date.now();
-      const newChoice: Restaurant = { buyer, restaurant, time };
+      const newRestaurant: Restaurant = { buyer, restaurant, time, ratings: [] };
       const response = await fetch("http://localhost:3000/api/restaurants", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newChoice)
+        body: JSON.stringify(newRestaurant)
       });
       const status = await response.json();
       console.log(status);
