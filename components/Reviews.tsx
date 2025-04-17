@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { RestaurantDocument } from "@/app/api/restaurants/route";
 import { Review } from "@/app/api/restaurants/route";
 import Ratings from "./Ratings";
@@ -12,6 +13,7 @@ interface ReviewsProps {
 }
 
 export default function Reviews({ restaurant, user }: ReviewsProps) {
+  const router = useRouter();
   const [text, setText] = useState<string>("");
   const [rating, setRating] = useState<number>(0);
 
@@ -40,6 +42,7 @@ export default function Reviews({ restaurant, user }: ReviewsProps) {
     });
     const status = await response.json();
     console.log(status);
+    router.refresh();
   }
 
   return (
