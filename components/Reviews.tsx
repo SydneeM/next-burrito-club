@@ -4,6 +4,7 @@ import { useState } from "react";
 import { RestaurantDocument } from "@/app/api/restaurants/route";
 import { Review } from "@/app/api/restaurants/route";
 import Ratings from "./Ratings";
+import { average } from "@/utils/average";
 
 interface ReviewsProps {
   restaurant: RestaurantDocument;
@@ -44,6 +45,7 @@ export default function Reviews({ restaurant, user }: ReviewsProps) {
   return (
     <div className="flex flex-col gap-y-2">
       <span>{restaurant.restaurant} Reviews</span>
+      <Ratings editable={false} initialRating={average(restaurant.ratings)} />
       <div className="border-2">
         {restaurant.reviews.map((review) => (
           <div
