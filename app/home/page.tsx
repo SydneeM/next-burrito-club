@@ -17,6 +17,7 @@ export default async function Home() {
 
   return (
     <div>
+      <span>Hello {user.value}</span>
       <RestaurantInput />
       <History restaurants={restaurants} user={user.value} />
     </div>
