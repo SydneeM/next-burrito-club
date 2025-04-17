@@ -10,9 +10,10 @@ const DEFAULT_COLOR = "#fadb8c";
 interface RatingsProps {
   editable: boolean;
   initialRating: number;
+  handleRating?: (value: number) => void;
 }
 
-export default function Ratings({ editable, initialRating }: RatingsProps) {
+export default function Ratings({ editable, initialRating, handleRating }: RatingsProps) {
   const [rating, setRating] = useState<number>(initialRating);
   const [temporaryRating, setTemporaryRating] = useState<number>(0);
 
@@ -31,8 +32,9 @@ export default function Ratings({ editable, initialRating }: RatingsProps) {
   }
 
   const handleClick = (rating: number) => {
-    if (editable) {
+    if (editable && handleRating) {
       setRating(rating);
+      handleRating(rating);
     }
   };
 

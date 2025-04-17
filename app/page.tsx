@@ -1,16 +1,19 @@
-import RestaurantInput from "@/components/RestaurantInput";
-import History from "@/components/History";
-import { RestaurantDocument } from "./api/restaurants/route";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-export default async function Home() {
-  const data = await fetch("http://localhost:3000/api/restaurants");
-  const restaurants: RestaurantDocument[] = await data.json();
-  console.log(restaurants);
+export default function Page() {
+  async function handleClick(formData: any) {
+    "use server";
+    const user = formData.get("user");
+    const cookieStore = await cookies();
+    cookieStore.set("user", user);
+    redirect("/home");
+  }
 
   return (
-    <div>
-      <RestaurantInput />
-      <History restaurants={restaurants} />
-    </div>
-  );
+    <form action={handleClick}>
+      <input name="user" defaultValue="Username" />
+      <button type="submit">Enter</button>
+    </form>
+  )
 }

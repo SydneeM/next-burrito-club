@@ -1,16 +1,17 @@
 "use client"
 
+import { useState } from "react";
 import { Button, Dialog, DialogPanel } from "@headlessui/react"
 import { RestaurantDocument } from "@/app/api/restaurants/route";
 import Ratings from "./Ratings";
 import Reviews from "./Reviews";
-import { useState } from "react";
 
 interface HistoryProps {
   restaurants: RestaurantDocument[];
+  user: string;
 }
 
-function History({ restaurants }: HistoryProps) {
+function History({ restaurants, user }: HistoryProps) {
   const [isOpen, setIsOpen] = useState(true);
 
   const open = () => {
@@ -61,7 +62,7 @@ function History({ restaurants }: HistoryProps) {
                     transition
                     className="w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
                   >
-                    <Reviews restaurant={restaurant} />
+                    <Reviews restaurant={restaurant} user={user} />
                   </DialogPanel>
                 </div>
               </div>
