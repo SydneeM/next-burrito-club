@@ -1,9 +1,11 @@
 "use client"
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Restaurant } from "@/app/api/restaurants/route";
 
 function RestaurantInput() {
+  const router = useRouter();
   const [restaurant, setRestaurant] = useState<string>("");
   const [buyer, setBuyer] = useState<string>("");
 
@@ -24,6 +26,7 @@ function RestaurantInput() {
 
       setRestaurant("");
       setBuyer("");
+      router.refresh();
     }
   }
 
