@@ -9,78 +9,59 @@ const DEFAULT_COLOR = "#fadb8c";
 
 interface RatingsProps {
   editable: boolean;
-  initialRating: number;
+  rating: number;
   handleRating?: (value: number) => void;
 }
 
-export default function Ratings({ editable, initialRating, handleRating }: RatingsProps) {
+export default function Ratings({ editable, rating, handleRating }: RatingsProps) {
   const stars = Array(DEFAULT_COUNT).fill(DEFAULT_ICON);
-  const [rating, setRating] = useState<number>(initialRating);
   const [temporaryRating, setTemporaryRating] = useState<number>(0);
 
+  const handleMouseEnter = (rating: number) => {
+    if (editable) {
+      setTemporaryRating(rating);
+    }
+  }
+
+  const handleMouseLeave = () => {
+    if (editable) {
+      setTemporaryRating(0);
+    }
+  }
+
   const handleClick = (rating: number) => {
-    if (handleRating) {
-      setRating(rating);
+    if (editable && handleRating) {
       handleRating(rating);
     }
   };
 
   return (
-    <div>
-      {editable ? (
-        <div className="flex flex-row">
-          {stars.map((item, index) => {
-            const active = temporaryRating
-              ? index < temporaryRating
-              : index < rating;
+    <div className="flex flex-row">
+      {stars.map((item, index) => {
+        const active = temporaryRating
+          ? index < temporaryRating
+          : index < rating;
 
-            const elementColor = active
-              ? DEFAULT_COLOR
-              : DEFAULT_UNSELECTED_COLOR;
+        const elementColor = active
+          ? DEFAULT_COLOR
+          : DEFAULT_UNSELECTED_COLOR;
 
-            return (
-              <div
-                className={`text-xl ${editable && "cursor-pointer hover:scale-[1.2]"}`}
-                key={index}
-                style={{
-                  color: elementColor,
-                  filter: `${active ? "grayscale(0%)" : "grayscale(100%)"}`,
-                }}
-                onMouseEnter={() => setTemporaryRating(index + 1)}
-                onMouseLeave={() => setTemporaryRating(0)}
-                onClick={() => handleClick(index + 1)}
-              >
-                {DEFAULT_ICON}
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="flex flex-row">
-          {stars.map((item, index) => {
-            const active = temporaryRating
-              ? index < temporaryRating
-              : index < initialRating;
-
-            const elementColor = active
-              ? DEFAULT_COLOR
-              : DEFAULT_UNSELECTED_COLOR;
-
-            return (
-              <div
-                className={`text-xl ${editable && "cursor-pointer hover:scale-[1.2]"}`}
-                key={index}
-                style={{
-                  color: elementColor,
-                  filter: `${active ? "grayscale(0%)" : "grayscale(100%)"}`,
-                }}
-              >
-                {DEFAULT_ICON}
-              </div>
-            );
-          })}
-        </div>
-      )}
+        return (
+          <div
+            className={`text-xl ${editable && "cursor-pointer hover:scale-[1.2]"}`}
+            key={index}
+            style={{
+              color: elementColor,
+              filter: `${active ? "grayscale(0%)" : "grayscale(100%)"}`,
+            }}
+            onMouseEnter={() => handleMouseEnter(index + 1)}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => handleClick(index + 1)}
+          >
+            {DEFAULT_ICON}
+          </div>
+        );
+      })}
     </div>
   );
 }

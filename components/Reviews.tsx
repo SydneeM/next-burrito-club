@@ -8,11 +8,12 @@ import Ratings from "./Ratings";
 import { average } from "@/utils/average";
 
 interface ReviewsProps {
-  restaurant: RestaurantDocument;
+  restaurants: RestaurantDocument[];
   user: string;
+  row: number;
 }
 
-export default function Reviews({ restaurant, user }: ReviewsProps) {
+export default function Reviews({ restaurants, user, row }: ReviewsProps) {
   const router = useRouter();
   const [text, setText] = useState<string>("");
   const [rating, setRating] = useState<number>(0);
@@ -22,7 +23,7 @@ export default function Reviews({ restaurant, user }: ReviewsProps) {
   }
 
   const handleSubmit = async () => {
-    const updatedReviews: Review[] = JSON.parse(JSON.stringify(restaurant.reviews));
+    const updatedReviews: Review[] = JSON.parse(JSON.stringify(restaurants[row].reviews));
     const newReview: Review = {
       rating,
       comment: text,
@@ -30,7 +31,7 @@ export default function Reviews({ restaurant, user }: ReviewsProps) {
     };
     updatedReviews.push(newReview);
 
-    const updatedRatings: number[] = JSON.parse(JSON.stringify(restaurant.ratings));
+    const updatedRatings: number[] = JSON.parse(JSON.stringify(restaurants[row].ratings));
     updatedRatings.push(rating);
 
     const response = await fetch("http://localhost:3000/api/restaurants", {
@@ -38,25 +39,28 @@ export default function Reviews({ restaurant, user }: ReviewsProps) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ updateId: restaurant._id, updatedReviews, updatedRatings })
+      body: JSON.stringify({ updateId: restaurants[row]._id, updatedReviews, updatedRatings })
     });
     const status = await response.json();
     console.log(status);
+
+    setText("");
+    setRating(0);
     router.refresh();
   }
 
   return (
     <div className="flex flex-col gap-y-2">
-      <span>{restaurant.restaurant} Reviews</span>
-      <Ratings editable={false} initialRating={average(restaurant.ratings)} />
+      <span>{restaurants[row].restaurant} Reviews</span>
+      <Ratings editable={false} rating={average(restaurants[row].ratings)} />
       <div className="border-2">
-        {restaurant.reviews.map((review) => (
+        {restaurants[row].reviews.map((review) => (
           <div
             key={`${review.user}-${review.comment}`}
             className="flex flex-col gap-y-2 border-2"
           >
             <span>{review.user}</span>
-            <Ratings editable={false} initialRating={review.rating} />
+            <Ratings editable={false} rating={review.rating} />
             <p>{review.comment}</p>
           </div>
         ))}
@@ -64,7 +68,7 @@ export default function Reviews({ restaurant, user }: ReviewsProps) {
       <div className="border-2">
         <label>
           Write your review:
-          <Ratings editable={true} initialRating={0} handleRating={handleRating} />
+          <Ratings editable={true} rating={rating} handleRating={handleRating} />
           <textarea
             value={text}
             name="reviewContent"
