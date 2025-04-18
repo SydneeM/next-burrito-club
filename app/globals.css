@@ -13,10 +13,12 @@
 }
 
 h1 {
+  font-family: var(--font-noto-serif);
   font-size: 4em;
 }
 
 h3 {
+  font-family: var(--font-noto-serif);
   font-size: x-large;
   font-weight: 500;
   padding-bottom: 0.2em;
