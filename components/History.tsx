@@ -26,9 +26,9 @@ function History({ restaurants, user }: HistoryProps) {
   }
 
   return (
-    <div className="card min-w-164">
+    <div className="card min-w-164 overflow-y-auto">
       <h3>Restaurant History</h3>
-      <div className="rounded-lg">
+      <div className="rounded-lg overflow-y-auto">
         <div className="grid grid-cols-5 text-start py-2 px-4 rounded-t-lg bg-[#b6cae1]">
           <h4>Place</h4>
           <h4>Buyer</h4>
