@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Restaurant } from "@/app/api/restaurants/route";
 
-function RestaurantInput() {
+function Input() {
   const router = useRouter();
   const [restaurant, setRestaurant] = useState<string>("");
   const [buyer, setBuyer] = useState<string>("");
@@ -31,26 +31,34 @@ function RestaurantInput() {
   }
 
   return (
-    <div className="flex flex-col gap-y-4">
-      <input
-        autoComplete="off"
-        value={restaurant}
-        placeholder="Restaurant"
-        onChange={(e) => setRestaurant(e.target.value)}
-      />
-      <input
-        autoComplete="off"
-        value={buyer}
-        placeholder="Buyer"
-        onChange={(e) => setBuyer(e.target.value)}
-      />
-      <button
-        onClick={handleSubmit}
-      >
-        Let&apos;s Eat
-      </button>
+    <div className="card w-[50%] min-w-80">
+      <h3>Restaurant Selection</h3>
+      <div className="flex flex-row w-full gap-x-2 ">
+        <div className="flex flex-col w-full gap-y-2">
+          <input
+            autoComplete="off"
+            className="bg-gray-100 py-2 px-4 rounded-lg"
+            value={restaurant}
+            placeholder="Restaurant"
+            onChange={(e) => setRestaurant(e.target.value)}
+          />
+          <input
+            autoComplete="off"
+            className="bg-gray-100 py-2 px-4 rounded-lg"
+            value={buyer}
+            placeholder="Buyer"
+            onChange={(e) => setBuyer(e.target.value)}
+          />
+        </div>
+        <button
+          className="rounded-lg bg-[#e3edf7] py-2 px-4 font-medium cursor-pointer"
+          onClick={handleSubmit}
+        >
+          Let&apos;s Eat
+        </button>
+      </div>
     </div>
   );
 }
 
-export default RestaurantInput;
+export default Input;

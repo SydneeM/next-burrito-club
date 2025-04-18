@@ -5,7 +5,7 @@ import { useState } from "react";
 const DEFAULT_COUNT = 5;
 const DEFAULT_ICON = "★";
 const DEFAULT_UNSELECTED_COLOR = "gray";
-const DEFAULT_COLOR = "#fadb8c";
+const DEFAULT_COLOR = "#fce356";
 
 interface RatingsProps {
   editable: boolean;

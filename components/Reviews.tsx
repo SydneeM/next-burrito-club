@@ -65,7 +65,7 @@ export default function Reviews({ restaurants, user, row }: ReviewsProps) {
           </div>
         ))}
       </div>
-      <div className="border-2">
+      <div className="flex flex-col border-2">
         <label>
           Write your review:
           <Ratings editable={true} rating={rating} handleRating={handleRating} />
