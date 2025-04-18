@@ -28,18 +28,18 @@ function History({ restaurants, user }: HistoryProps) {
   return (
     <div className="card min-w-164">
       <h3>Restaurant History</h3>
-      <div className="border-1 border-gray-200 rounded-lg">
+      <div className="rounded-lg">
         <div className="grid grid-cols-5 text-start py-2 px-4 rounded-t-lg bg-[#b6cae1]">
           <h4>Place</h4>
           <h4>Buyer</h4>
           <h4>Date</h4>
           <h4>Rating</h4>
-          <h4>Add A Review</h4>
+          <h4>Review</h4>
         </div>
         {restaurants.map((restaurant, index) => (
           <div
             key={`${restaurant.restaurant}-${restaurant.time}`}
-            className="grid grid-cols-5 text-star py-2 px-4 border-t-1 border-gray-200"
+            className="grid grid-cols-5 text-star py-2 px-4 border-b-1 border-x-1 border-gray-200 last:rounded-b-lg"
           >
             <div className="flex items-center">
               <span className="">{restaurant.restaurant}</span>
@@ -56,9 +56,9 @@ function History({ restaurants, user }: HistoryProps) {
             <div className="">
               <button
                 onClick={() => open(index)}
-                className="rounded-lg bg-[#e3edf7] py-2 px-4 text-sm font-medium cursor-pointer"
+                className="rounded-lg bg-[#e3edf7] py-2 px-4 text-sm font-medium cursor-pointer hover:animate-pulse"
               >
-                Open dialog
+                Add Review
               </button>
             </div>
           </div>

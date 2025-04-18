@@ -50,34 +50,46 @@ export default function Reviews({ restaurants, user, row }: ReviewsProps) {
   }
 
   return (
-    <div className="flex flex-col gap-y-2">
-      <span>{restaurants[row].restaurant} Reviews</span>
-      <Ratings editable={false} rating={average(restaurants[row].ratings)} />
-      <div className="border-2">
-        {restaurants[row].reviews.map((review) => (
-          <div
-            key={`${review.user}-${review.comment}`}
-            className="flex flex-col gap-y-2 border-2"
-          >
-            <span>{review.user}</span>
-            <Ratings editable={false} rating={review.rating} />
-            <p>{review.comment}</p>
-          </div>
-        ))}
+    <div className="flex flex-col gap-y-8">
+      <h3 className="">{restaurants[row].restaurant}</h3>
+      <div className="flex flex-col gap-y-1">
+        <h4>Rating</h4>
+        <Ratings editable={false} rating={average(restaurants[row].ratings)} />
       </div>
-      <div className="flex flex-col border-2">
-        <label>
-          Write your review:
+      <div className="flex flex-col gap-y-1">
+        <h4>Reviews</h4>
+        <div className="flex flex-col gap-y-2">
+          {restaurants[row].reviews.map((review) => (
+            <div
+              key={`${review.user}-${review.comment}`}
+              className="bg-gray-100 py-2 px-4 rounded-lg"
+            >
+              <span>{review.user}</span>
+              <Ratings editable={false} rating={review.rating} />
+              <p>{review.comment}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col gap-y-1">
+        <h4>Write a Review</h4>
+        <div className="flex flex-col gap-y-2 border-1 border-gray-200 py-2 px-4 rounded-lg">
           <Ratings editable={true} rating={rating} handleRating={handleRating} />
           <textarea
+            className="py-2 px-4"
             value={text}
             name="reviewContent"
             rows={4}
             cols={50}
             onChange={(e) => setText(e.target.value)}
           />
-        </label>
-        <button onClick={handleSubmit}>Add Review</button>
+          <button
+            className="w-fit rounded-lg bg-[#e3edf7] py-2 px-4 font-medium cursor-pointer hover:animate-pulse"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );

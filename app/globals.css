@@ -18,7 +18,12 @@ h1 {
 
 h3 {
   font-size: x-large;
+  font-weight: 500;
   padding-bottom: 0.2em;
+}
+
+h4 {
+  font-size: large;
 }
 
 body {
