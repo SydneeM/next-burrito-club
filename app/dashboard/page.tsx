@@ -22,7 +22,7 @@ export default async function Dashboard() {
       <div className="flex flex-col w-[65vw] gap-y-8 p-10">
         <h1>Burrito Club</h1>
         <div className="flex flex-row gap-x-8 w-full">
-          <Selection restaurant={restaurants[0]} />
+          <Selection restaurant={restaurants[0] || []} />
           <Input />
         </div>
         <History restaurants={restaurants} user={user.value} />
