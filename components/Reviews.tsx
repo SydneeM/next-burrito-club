@@ -69,6 +69,9 @@ export default function Reviews({ restaurants, user, row }: ReviewsProps) {
               <p>{review.comment}</p>
             </div>
           ))}
+          {restaurants[row].reviews.length === 0 &&
+            <span>No reviews yet</span>
+          }
         </div>
       </div>
       <div className="flex flex-col gap-y-1">
