@@ -29,7 +29,7 @@ function History({ restaurants, user }: HistoryProps) {
     <div className="card min-w-164 overflow-y-auto">
       <h3>Restaurant History</h3>
       <div className="rounded-lg overflow-y-auto">
-        <div className="grid grid-cols-5 text-start py-2 px-4 rounded-t-lg bg-[#b6cae1]">
+        <div className="grid grid-cols-5 text-start py-2 px-4 rounded-t-lg bg-gray-100 border-1 border-gray-300 ">
           <h4>Place</h4>
           <h4>Buyer</h4>
           <h4>Date</h4>
@@ -39,7 +39,7 @@ function History({ restaurants, user }: HistoryProps) {
         {restaurants.map((restaurant, index) => (
           <div
             key={`${restaurant.restaurant}-${restaurant.time}`}
-            className="grid grid-cols-5 text-star py-2 px-4 border-b-1 border-x-1 border-gray-200 last:rounded-b-lg"
+            className="grid grid-cols-5 text-star py-2 px-4 border-b-1 border-x-1 border-gray-300 last:rounded-b-lg"
           >
             <div className="flex items-center">
               <span className="">{restaurant.restaurant}</span>
@@ -55,7 +55,7 @@ function History({ restaurants, user }: HistoryProps) {
             </div>
             <div className="">
               <button
-                className="py-2 px-4"
+                className="dashboard-button py-2 px-4"
                 onClick={() => open(index)}
               >
                 View / Add

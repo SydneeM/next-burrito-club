@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 
 export default async function Page() {
   const cookieStore = await cookies();
-  const storedUser = cookieStore.get("user");
+  const storedUser = cookieStore.get("burrito-club-user");
 
   if (storedUser !== undefined) {
     redirect("/dashboard");
@@ -14,7 +14,7 @@ export default async function Page() {
     const newUser = formData.get("user");
     if (newUser) {
       const cookieStore = await cookies();
-      cookieStore.set("user", String(newUser));
+      cookieStore.set("burrito-club-user", String(newUser));
       redirect("/dashboard");
     }
   }
@@ -28,13 +28,13 @@ export default async function Page() {
           action={handleClick}
         >
           <input
-            className="border-1 border-gray-200 py-3 px-4 rounded-lg focus:outline-none bg-white shadow"
+            className="border-1 border-gray-300 py-3 px-4 rounded-lg focus:outline-none bg-white shadow"
             autoComplete="off"
             name="user"
             placeholder="Username"
           />
           <button
-            className="py-3"
+            className="login-button py-3 shadow"
             type="submit"
           >
             Enter

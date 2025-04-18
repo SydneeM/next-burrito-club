@@ -10,7 +10,7 @@ export default async function Dashboard() {
   const restaurants: RestaurantDocument[] = await response.json();
 
   const cookieStore = await cookies();
-  const user = cookieStore.get("user");
+  const user = cookieStore.get("burrito-club-user");
 
   if (user === undefined) {
     redirect("/");

@@ -37,21 +37,21 @@ function Input() {
         <div className="flex flex-col w-full gap-y-2">
           <input
             autoComplete="off"
-            className="border-1 border-gray-200 py-2 px-4 rounded-lg focus:outline-[#b6cae1]"
+            className="border-1 border-gray-300 py-2 px-4 rounded-lg focus:outline-[#b6cae1]"
             value={restaurant}
             placeholder="Restaurant"
             onChange={(e) => setRestaurant(e.target.value)}
           />
           <input
             autoComplete="off"
-            className="border-1 border-gray-200 py-2 px-4 rounded-lg focus:outline-[#b6cae1]"
+            className="border-1 border-gray-300 py-2 px-4 rounded-lg focus:outline-[#b6cae1]"
             value={buyer}
             placeholder="Buyer"
             onChange={(e) => setBuyer(e.target.value)}
           />
         </div>
         <button
-          className="py-2 px-4"
+          className="dashboard-button py-2 px-4"
           onClick={handleSubmit}
         >
           Submit

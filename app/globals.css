@@ -26,15 +26,6 @@ h4 {
   font-size: large;
 }
 
-button {
-  border-radius: 0.5rem;
-  background-color: #e3edf7;
-  color: #4b555d;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
 body {
   background-image: url("/background.svg");
   background-repeat: no-repeat;
@@ -50,6 +41,32 @@ body {
   border-radius: 1em;
   padding: 2em;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.login-button {
+  border-radius: 0.5rem;
+  background-color: #7791b0;
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.login-button:hover {
+  background-color: #9eb4ce;
+}
+
+.dashboard-button {
+  border-radius: 0.5rem;
+  background-color: #b6cae1;
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.dashboard-button:hover {
+  background-color: #d4e0ed;
 }
 
 .shadow {

@@ -76,7 +76,7 @@ export default function Reviews({ restaurants, user, row }: ReviewsProps) {
       </div>
       <div className="flex flex-col gap-y-1">
         <h4>Write a Review</h4>
-        <div className="flex flex-col gap-y-2 border-1 border-gray-200 py-2 px-4 rounded-lg">
+        <div className="flex flex-col gap-y-2 border-1 border-gray-300 py-2 px-4 rounded-lg">
           <Ratings editable={true} rating={rating} handleRating={handleRating} />
           <textarea
             className="py-2 px-4 focus:outline-[#b6cae1]"
@@ -87,7 +87,7 @@ export default function Reviews({ restaurants, user, row }: ReviewsProps) {
             onChange={(e) => setText(e.target.value)}
           />
           <button
-            className="w-fit py-2 px-4"
+            className="dashboard-button w-fit py-2 px-4"
             onClick={handleSubmit}
           >
             Submit
