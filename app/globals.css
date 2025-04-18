@@ -29,6 +29,7 @@ h4 {
 button {
   border-radius: 0.5rem;
   background-color: #e3edf7;
+  color: #4b555d;
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 500;
