@@ -34,7 +34,7 @@ function History({ restaurants, user }: HistoryProps) {
           <h4>Buyer</h4>
           <h4>Date</h4>
           <h4>Rating</h4>
-          <h4>Review</h4>
+          <h4>Reviews</h4>
         </div>
         {restaurants.map((restaurant, index) => (
           <div
@@ -55,10 +55,10 @@ function History({ restaurants, user }: HistoryProps) {
             </div>
             <div className="">
               <button
+                className="py-2 px-4"
                 onClick={() => open(index)}
-                className="rounded-lg bg-[#e3edf7] py-2 px-4 text-sm font-medium cursor-pointer hover:animate-pulse"
               >
-                Add Review
+                View / Add
               </button>
             </div>
           </div>

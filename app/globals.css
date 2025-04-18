@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #262b2f;
 }
 
 @theme inline {
@@ -26,6 +26,14 @@ h4 {
   font-size: large;
 }
 
+button {
+  border-radius: 0.5rem;
+  background-color: #e3edf7;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
 body {
   background-image: url("/background.svg");
   background-repeat: no-repeat;
@@ -40,5 +48,9 @@ body {
   background-color: white;
   border-radius: 1em;
   padding: 2em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.shadow {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

@@ -5,7 +5,7 @@ import Input from "@/components/Input";
 import Selection from "@/components/Selection";
 import History from "@/components/History";
 
-export default async function Home() {
+export default async function Dashboard() {
   const response = await fetch("http://localhost:3000/api/restaurants");
   const restaurants: RestaurantDocument[] = await response.json();
 
@@ -19,9 +19,9 @@ export default async function Home() {
   return (
     <div className="flex flex-row justify-center h-screen">
       {/* <span>Hello {user.value}</span> */}
-      <div className="flex flex-col w-[65vw] gap-y-4 p-10">
+      <div className="flex flex-col w-[65vw] gap-y-8 p-10">
         <h1>Burrito Club</h1>
-        <div className="flex flex-row gap-x-4 w-full">
+        <div className="flex flex-row gap-x-8 w-full">
           <Selection restaurant={restaurants[0]} />
           <Input />
         </div>

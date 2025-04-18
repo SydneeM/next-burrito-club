@@ -6,7 +6,7 @@ export default async function Page() {
   const storedUser = cookieStore.get("user");
 
   if (storedUser !== undefined) {
-    redirect("/home");
+    redirect("/dashboard");
   }
 
   async function handleClick(formData: FormData) {
@@ -15,14 +15,32 @@ export default async function Page() {
     if (newUser) {
       const cookieStore = await cookies();
       cookieStore.set("user", String(newUser));
-      redirect("/home");
+      redirect("/dashboard");
     }
   }
 
   return (
-    <form action={handleClick}>
-      <input name="user" defaultValue="Username" />
-      <button type="submit">Enter</button>
-    </form>
-  )
+    <div className="flex flex-col h-screen">
+      <div className="flex flex-col w-fit self-center gap-y-4 my-auto">
+        <h1 className="">Join the Club</h1>
+        <form
+          className="flex flex-col gap-y-4"
+          action={handleClick}
+        >
+          <input
+            className="border-1 border-gray-200 py-3 px-4 rounded-lg focus:outline-none bg-white shadow"
+            autoComplete="off"
+            name="user"
+            placeholder="Username"
+          />
+          <button
+            className="py-3"
+            type="submit"
+          >
+            Enter
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
