@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { Button, Dialog, DialogPanel } from "@headlessui/react"
+import { Dialog, DialogPanel } from "@headlessui/react"
 import { RestaurantDocument } from "@/app/api/restaurants/route";
 import Ratings from "./Ratings";
 import Reviews from "./Reviews";
