@@ -1,7 +1,7 @@
 # Next Burrito Club
 Next Burrito Club is an application that allows users to keep track of lunch outings and review them.
 
-<img width="1728" alt="next-burrito-club" src="https://github.com/user-attachments/assets/e1f1cc3b-9c75-40e4-8232-4a64379f4b1e" />
+<img width="1723" alt="burrito-club-next" src="https://github.com/user-attachments/assets/54f7b8da-d86f-46d9-8ee7-0cb10b694c36" />
 
 ## Environment Variables
 To run this project, you will need to add the following environment variables to your .env file
