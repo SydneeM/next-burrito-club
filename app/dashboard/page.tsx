@@ -21,7 +21,6 @@ export default async function Dashboard() {
 
   return (
     <div className="flex flex-row justify-center h-screen">
-      {/* <span>Hello {user.value}</span> */}
       <div className="flex flex-col w-[65vw] gap-y-8 p-10">
         <h1>Burrito Club</h1>
         <div className="flex flex-row gap-x-8 w-full">
