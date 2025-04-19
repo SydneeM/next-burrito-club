@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #394046;
+  --foreground: #535b62;
 }
 
 @theme inline {
@@ -15,7 +15,7 @@
 h1 {
   font-family: var(--font-noto-serif);
   font-size: 4em;
-  color: #242a2e;
+  color: #303a43;
 }
 
 h3 {
