@@ -34,7 +34,7 @@ export default function Reviews({ restaurants, user, row }: ReviewsProps) {
     const updatedRatings: number[] = JSON.parse(JSON.stringify(restaurants[row].ratings));
     updatedRatings.push(rating);
 
-    const response = await fetch("http://localhost:3000/api/restaurants", {
+    const response = await fetch("/api/restaurants", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

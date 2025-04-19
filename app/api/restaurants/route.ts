@@ -16,7 +16,7 @@ export interface Restaurant {
 }
 
 export interface RestaurantDocument extends Restaurant {
-  _id: ObjectId;
+  _id: string;
 }
 
 export async function GET() {

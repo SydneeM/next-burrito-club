@@ -14,7 +14,7 @@ function Input() {
       buyer !== "" && buyer.trim().length !== 0) {
       const time: number = Date.now();
       const newRestaurant: Restaurant = { buyer, restaurant, time, ratings: [], reviews: [] };
-      const response = await fetch("http://localhost:3000/api/restaurants", {
+      const response = await fetch("/api/restaurants", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
